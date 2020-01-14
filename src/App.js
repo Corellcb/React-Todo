@@ -4,7 +4,6 @@ import './components/TodoComponents/Todo.css';
 
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
-import Clear from './components/TodoComponents/Clear';
 
 const todos = [
   {
