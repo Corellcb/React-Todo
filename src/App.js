@@ -1,13 +1,21 @@
 import React from 'react';
 
+import './components/TodoComponents/Todo.css';
+
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import Clear from './components/TodoComponents/Clear';
 
 const todos = [
   {
     todo: 'Dummy Todo',
     id: 25,
     completed: false
+  },
+  {
+    todo: 'Dummy Todo',
+    id: 30,
+    completed: true
   }
 ]
 
@@ -33,6 +41,14 @@ class App extends React.Component {
     });
   };
 
+  clearTodo = () => {
+    const newTodoList = this.state.todoList.filter( el => !(el.completed));
+
+    this.setState({
+      todoList: newTodoList
+    })
+  }
+
   toggleTodo = id => {
     const newTodoList = this.state.todoList.map(el => {
       if(el.id === id){
@@ -51,14 +67,13 @@ class App extends React.Component {
     });
 
   
-  }
-
+  };
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm addTodo={this.addTodo} />
+        <TodoForm clearTodo={this.clearTodo} addTodo={this.addTodo} />
         <TodoList toggleTodo={this.toggleTodo} todoList={this.state.todoList} />
       </div>
     );

@@ -17,16 +17,24 @@ class ListForm extends React.Component {
         this.props.addTodo(this.state.todo);
     }
 
+    handleClear = e => {
+        e.preventDefault();
+        this.props.clearTodo();
+    }
+
     render() {
         return (
-            <form onSubmit={this.handleSubmit} >
-                <input 
-                    type='text'
-                    value={this.state.todo}
-                    onChange={this.handleChange}
-                />
-                <button>Add</button>
-            </form>
+            <>
+                <form onSubmit={this.handleSubmit} >
+                    <input
+                        type='text'
+                        value={this.state.todo}
+                        onChange={this.handleChange}
+                    />
+                    <button>Add</button>
+                    <button onClick={this.handleClear}>Clear Completed</button>
+                </form>
+            </>
         )
     }
 }
