@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import './components/TodoComponents/Todo.css';
 
@@ -16,7 +17,16 @@ const todos = [
     id: 30,
     completed: true
   }
-]
+];
+
+const AppDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 10px;
+`
+
+
 
 class App extends React.Component {
   constructor() {
@@ -70,11 +80,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <AppDiv>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm clearTodo={this.clearTodo} addTodo={this.addTodo} />
         <TodoList toggleTodo={this.toggleTodo} todoList={this.state.todoList} />
-      </div>
+      </AppDiv>
     );
   }
 }
